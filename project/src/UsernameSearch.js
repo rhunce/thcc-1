@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function GistList() {
+function UsernameSearch({ setGistList }) {
 
   const [userName, setUserName] = useState('bradtraversy');
-  const [userGists, setUserGists] = useState([]);
-
-  useEffect(() => {
-    console.log('BAM!!!');
-  });
 
   function submitButtonHandler(e) {
     e.preventDefault();
     let url = `https://api.github.com/users/${userName}/gists`;
     fetch(url)
       .then(data => data.json())
-      .then(gists => setUserGists(gists))
+      .then(gists => setGistList(gists))
       .catch(err => console.error(err));
   }
 
@@ -26,9 +21,8 @@ function GistList() {
         <br />
         <input type="submit" value="Submit" onClick={submitButtonHandler}/>
         <div>{userName}</div>
-        <div>{JSON.stringify(userGists)}</div>
     </div>
   );
 }
 
-export default GistList;
+export default UsernameSearch;
