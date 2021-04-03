@@ -1,11 +1,14 @@
 import Gist from './Gist.js';
+import './App.css';
 
 function GistContainer({ gistList }) {
   return (
     <div>
-      <Gist />
-      <div>{JSON.stringify(gistList)}</div>
-      <Gist />
+      <span className='left-col'>Description</span>
+      <span className='right-col'>Date Created</span>
+      {gistList.map((gist) => {
+        return <Gist key={gist.id} gist={gist}/>
+      })}
     </div>
   );
 }
