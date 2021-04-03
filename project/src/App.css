@@ -5,3 +5,8 @@
 .right-col {
   color: brown;
 }
+
+.description:hover {
+  color: deeppink;
+  cursor: pointer;
+}
