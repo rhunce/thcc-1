@@ -6,14 +6,19 @@ import GistDetail from './GistDetail.js';
 function App() {
   const [gistList, setGistList] = useState([]);
   const [gistClicked, setGistClicked] = useState(false);
+  const [gistDetail, setGistDetail] = useState([]);
 
   return (
     <div className='App'>
       <UsernameSearch setGistList={setGistList} />
       {gistClicked ? (
-        <GistDetail />
+        <GistDetail setGistClicked={setGistClicked} gistDetail={gistDetail} />
       ) : (
-        <GistContainer gistList={gistList} setGistClicked={setGistClicked} />
+        <GistContainer
+          gistList={gistList}
+          setGistClicked={setGistClicked}
+          setGistDetail={setGistDetail}
+        />
       )}
     </div>
   );
