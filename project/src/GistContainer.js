@@ -1,15 +1,15 @@
 import Gist from './Gist.js';
 import './App.css';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-function GistContainer({ gistList }) {
+function GistContainer({ gistList, setGistClicked }) {
   return (
     <div>
       <span className='left-col'>Description</span>
       <span className='right-col'>Date Created</span>
       {gistList.map((gist) => {
-        return <Gist key={gist.id} gist={gist}/>
+        return (
+          <Gist key={gist.id} gist={gist} setGistClicked={setGistClicked} />
+        );
       })}
     </div>
   );
